@@ -1,0 +1,31 @@
+﻿<form name="addMp3Form" ng-submit="Add(newMp3)" novalidate>
+    <div class="row row-border-edit form-group">
+        <div class="col-md-5 ">
+            Name <input type="text" class="form-control" name="name" ng-model="newMp3.name" ng-minlength="2" ng-maxlength="100" ng-required="true" />
+            <span ng-show="addMp3Form.name.$invalid" class="help-block">required</span>
+        </div>
+        <div class="col-md-4 ">
+            Artist <input type="text" class="form-control" ng-model="newMp3.artist" ng-maxlength="100" />
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="row row-border-edit form-group">
+        <div class="col-md-5">
+            Album <input type="text" class="form-control" ng-model="newMp3.album" ng-maxlength="100" />
+        </div>
+        <div class="col-md-4">
+            Year <input type="number" class="form-control" name="year" ng-model="newMp3.year" ng-maxlength="4" /><!--type="number"--> 
+            <span ng-show="addMp3Form.year.$invalid" class="help-block">must be numbers /0000/</span>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" ng-disabled="addMp3Form.$invalid" class="btn btn-primary" ng-hide="addMp3Form.$submitted">Save</button>
+            <a href="#/mp3" class="btn btn-primary" ng-hide="addMp3Form.$submitted">Cancel</a>
+            <a href="#/mp3" class="btn btn-primary" ng-hide="!addMp3Form.$submitted">Back</a>
+            <p>{{status}}</p>
+        </div>
+    </div>
+     <!-- <pre ng-bind="addMp3Form | json"></pre>
+  <pre ng-bind="newMp3 | json"></pre>
+     -->
+</form>

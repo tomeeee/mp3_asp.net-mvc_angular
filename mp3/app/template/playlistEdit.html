@@ -1,0 +1,57 @@
+﻿<form name="editPlaylist" ng-submit="Update(playlist)" novalidate>
+    <div class="row row-border">
+        <div class="col-md-5">
+            <label>Name :</label><br />
+            <input class="form-control" type="text" name="name" ng-model="playlist.name" ng-minlength="1" ng-maxlength="100" ng-required="true" /><br />
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <a href="#/playlist" class="btn btn-primary">Back / Cancel</a><br /><br />
+            <button type="submit" class="btn btn-primary" ng-disabled="editPlaylist.$invalid">Save</button>{{status}}
+        </div>
+    </div>
+    <div class="row row-border panel panel-primary">
+        <div class="col-md-9">
+            <label>Songs in playlist</label>
+            <input class="input-sm" placeholder="Search" ng-model="search1" />
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="pre-scrollable">
+        <div class="row row-border" ng-repeat="mp3 in playlist.mp3s | filter:search1 ">
+            <div class="col-md-5">
+                {{mp3.id}} | {{mp3.name}}
+            </div>
+            <div class="col-md-4">
+                {{mp3.artist}}
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" ng-click="Remove(mp3)">Remove</button>
+            </div>
+        </div>
+    </div>
+    <div class="row row-border panel panel-primary">
+        <div class="col-md-9">
+            <label>Songs not in playlist</label>
+            <input class="input-sm" placeholder="Search" ng-model="search2" />
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="pre-scrollable">
+        <div class="panel-footer row row-border">
+            <div class="row row-border" ng-repeat="notInMp3 in playlist.notInPlaylist  | filter:search2 ">
+                <div class="col-md-5">
+                    {{notInMp3.id}} | {{notInMp3.name}}
+                </div>
+                <div class="col-md-4">
+                    {{notInMp3.artist}}
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" ng-click="Add(notInMp3)">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <pre ng-bind="playlist | json"></pre>
+         -->
+</form>

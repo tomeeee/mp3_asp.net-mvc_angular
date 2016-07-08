@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - My ASP.NET Application</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
+</head>
+<body ng-app="app">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <!--search-->
+            <div ng-include="'app/template/search.html'"></div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/playlist">Playlist</a></li>
+                    <li><a href="#/mp3">Mp3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top:20px">
+        <div class="panel panel-default" ng-view></div>
+    </div>
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; 2016 - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Angular")
+    <script src="~/app/app.js"></script>
+    <script src="~/app/mp3Controller.js"></script>
+    <script src="~/app/playlistController.js"></script>
+    <script src="~/app/search.js"></script>
+    <script src="~/app/playlistCrud.js"></script>
+    <script src="~/app/mp3Crud.js"></script>
+    <script src="~/app/playlistDirectives.js"></script>
+    <script src="~/app/mp3Directives.js"></script>
+</body>
+</html>

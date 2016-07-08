@@ -1,0 +1,30 @@
+﻿<form name="editMp3Form" ng-submit="Update(mp3)" novalidate>
+    <div class="row row-border-edit form-group">
+        <div class="col-md-5 ">
+            Name <input type="text" class="form-control" name="name" ng-model="mp3.name" ng-minlength="2" ng-maxlength="100" ng-required="true" />
+            <span ng-show="editMp3Form.name.$invalid" class="help-block">required</span>
+        </div>
+        <div class="col-md-4 ">
+            Artist <input type="text" class="form-control" ng-model="mp3.artist" ng-maxlength="100" />
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="row row-border-edit form-group">
+        <div class="col-md-5">
+            Album <input type="text" class="form-control" ng-model="mp3.album" ng-maxlength="100" />
+        </div>
+        <div class="col-md-4">
+            Year <input type="number" class="form-control" name="year" ng-model="mp3.year" ng-maxlength="4" />
+            <span ng-show="editMp3Form.year.$invalid" class="help-block">must be numbers /0000/</span>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" ng-disabled="editMp3Form.$invalid" class="btn btn-primary">Save</button>
+            <a href="#/mp3" class="btn btn-primary">Cancel / Back</a>
+            <p>{{status}}</p>
+        </div>
+    </div>
+ <!--    <pre ng-bind="mp3 | json"></pre>
+    -->
+
+</form>

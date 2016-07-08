@@ -1,0 +1,23 @@
+﻿<div class="row row-border">
+    <div class="col-md-5">
+        <h3>Name</h3>
+        <label>Search: </label><input class="input-sm" ng-model="search" />
+    </div>
+    <div class="col-md-4">
+        <h3>Artist</h3>
+    </div>
+</div>
+<div class="pre-scrollable">
+    <div class="row row-border" ng-repeat="m in mp3 | filter:search">
+        <div class="col-md-5">
+            {{m.id}} | {{m.name}}
+        </div>
+        <div class="col-md-4">
+            {{m.artist}}
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-primary" href="#/mp3/edit/{{m.id}}">Edit</a>
+            <a class="btn btn-primary" ng-click="Delete(m)">Delete</a>
+        </div>
+    </div>
+</div>

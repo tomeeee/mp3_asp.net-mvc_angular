@@ -1,0 +1,6 @@
+﻿<div class="navbar-form navbar-right">
+    <form novalidate name="searchForm">
+        <input class="input-sm" type="text" name="key" placeholder="Name/Artist/Playlist" ng-model="key" ng-required="true" />
+        <a href="#/search/{{key}}" type="submit" class="btn btn-default" ng-disabled="!searchForm.$valid" >Search</a>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+﻿<div class="row row-border">
+    <div class="row" ng-show="!addform">
+        <div class="col-md-9"></div>
+        <div class="col-md-3"><button class="btn btn-primary" ng-click="addform=true">Add</button></div>
+    </div>
+    <form name="addPlaylist" ng-submit="Add()" ng-show="addform" novalidate>
+        <div class="col-md-5">
+            <label>Name :</label><br />
+            <input class="form-control" type="text" name="name" ng-model="newPlaylist.name" ng-minlength="1" ng-maxlength="100" ng-required="true" />
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <a class="btn btn-primary" ng-click="addform=false">Cancel</a><br /><br />
+            <button type="submit" class="btn btn-primary" ng-disabled="addPlaylist.$invalid">Save</button>{{status}}
+        </div>
+     <!--   <pre ng-bind="playlist | json"></pre>
+        <pre ng-bind="newPlaylist | json"></pre>
+            -->
+    </form>
+</div>
